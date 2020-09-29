@@ -1,15 +1,33 @@
 import React, { useEffect } from 'react';
 import {View,FlatList,StyleSheet,Text, Alert, TouchableNativeFeedback} from 'react-native';
 import { connect } from 'react-redux';
-import { fetchQuestion } from '../actions/questionAction';
+import { fetchQuestion, fetchVocationalQuestion } from '../actions/questionAction';
+import * as Linking from 'expo-linking';
+import ListQuestion from '../components/ListQuestion';
 
-const QuestionScreen = ({fetchQuestion,questions,isLoading,error,route}) => {
 
-    const {subjectName,yearName} = route.params;    
+const QuestionScreen = ({fetchQuestion,fetchVocationalQuestion,questions,isLoading,error,route}) => {
+
+    const {courseName,subjectName,yearName} = route.params;    
 
    useEffect(() => {
-       fetchQuestion(subjectName,yearName);
-   },[fetchQuestion])
+       if(courseName === 'BCA'){
+            fetchVocationalQuestion(courseName,yearName)
+       }else if(courseName === 'Bsc-it'){
+            fetchVocationalQuestion(courseName,yearName)
+       }else if(courseName === 'Bio-tech'){
+        fetchVocationalQuestion(courseName,yearName)
+        }else if(courseName === 'MCA'){
+            fetchVocationalQuestion(courseName,yearName)
+            }
+            else if(courseName === 'MBA'){
+                fetchVocationalQuestion(courseName,yearName)
+                }
+       else{
+        fetchQuestion(subjectName,yearName);
+       }
+      
+   },[fetchQuestion,fetchVocationalQuestion])
 
 
    if(isLoading === true){
@@ -31,22 +49,18 @@ if(error === true ){
 }
 
 
-    const question = [
-        {id:'1',questionPaper:'hindi2020'},
-        {id:'2',questionPaper:'English2020'},
-        {id:'3',questionPaper:'Math 2020'},
+const handleOnpress = (file) => {
+    Linking.openURL(`http://syllabusapi.ml${file}`);
+};
 
-    ]
+
+
     return(
         <View style={styles.container}>
             <FlatList data={questions} keyExtractor={(item,index) => item._id}  numColumns={1} renderItem={(itemData) => (
-                <View>
-                <TouchableNativeFeedback onPress={() => {}}>
-                <View style={styles.question}>
-                    <Text style={styles.text}>{itemData.item.questionName}</Text>
-                </View>
-                </TouchableNativeFeedback>
-                </View>
+               
+               <ListQuestion onPress={() => {handleOnpress(itemData.item.file)}} fileName={itemData.item.fileName} />
+        
             )}  />
         </View>
     )
@@ -60,22 +74,6 @@ const styles = StyleSheet.create({
        
       
     },
-    question:{
-        justifyContent:'center',
-        alignItems:'center',
-        margin:10,
-        backgroundColor:'blue',
-        elevation:5,
-        borderBottomColor:'black',
-        borderRadius:40,
-        height:40,
-    
-
-    },
-    text:{
-        color:'white',
-        fontSize:18,
-    }
 })
 
 const mapStateToProps  = state => ({
@@ -84,4 +82,4 @@ const mapStateToProps  = state => ({
     error:state.questionReducer.error
 })
 
-export default connect(mapStateToProps,{fetchQuestion})(QuestionScreen);
+export default connect(mapStateToProps,{fetchQuestion,fetchVocationalQuestion})(QuestionScreen);

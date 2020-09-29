@@ -14,6 +14,7 @@ export default function(state = initialState,action){
     const {type,payload} = action;
     switch(type){
         case FETCH_COURSE_SUCCESS:
+           
             return {
                 ...state,course:payload,error:false,isLoading:false
             }

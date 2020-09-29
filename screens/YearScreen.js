@@ -7,9 +7,9 @@ import { fetchYear } from '../actions/questionAction';
 
 const YearScreen = ({fetchYear,isLoading,error,navigation,years,route}) => {
         
-    const {subjectName} = route.params;
+    const {courseName,subjectName} = route.params;
         useEffect(() => {
-            fetchYear(subjectName)
+            fetchYear(courseName)
         },[fetchYear])
 
         if(isLoading === true){
@@ -30,18 +30,28 @@ const YearScreen = ({fetchYear,isLoading,error,navigation,years,route}) => {
             )
         }
 
-    const handlePress = (subjectName,yearName) => {
-       navigation.navigate('question',{
-           subjectName:subjectName,
-           yearName:yearName
-       })
+    const handlePress = (yearName) => {
+        if(subjectName === 'vocational'){
+            navigation.navigate('question',{
+                courseName:courseName,
+                subjectName:subjectName,
+                yearName:yearName
+            })
+        }else{
+            navigation.navigate('question',{
+                courseName:'test',
+                subjectName:subjectName,
+                yearName:yearName
+            })
+        }
+     
     }
 
 
     return(
         <View style={styles.container}>
-             <FlatList data={years} numColumns={1} renderItem={(itemData) => (
-          <TouchableNativeFeedback onPress={() => {handlePress(itemData.item.subjectName,itemData.item.yearName)}}>
+             <FlatList data={years}   keyExtractor={(item,index) => item._id}  numColumns={1} renderItem={(itemData) => (
+          <TouchableNativeFeedback onPress={() => {handlePress(itemData.item.yearName)}}>
           <View style={styles.item}>
               <Text style={styles.text}>{itemData.item.yearName}</Text>
           </View>

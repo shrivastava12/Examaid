@@ -3,7 +3,7 @@ import {FlatList,ActivityIndicator,StyleSheet, Text,View, Alert} from 'react-nat
 import { connect } from 'react-redux';
 import { fetchCourse } from '../actions/questionAction';
 import ListCourse from '../components/ListCourse';
-import NetInfo from '@react-native-community/netinfo';
+
 
 const CourseScreen = ({courses,navigation,isLoading,error,route,fetchCourse}) => {
     
@@ -36,9 +36,43 @@ const CourseScreen = ({courses,navigation,isLoading,error,route,fetchCourse}) =>
     }
 
     const handleOnPress = (courseName) => {
+
+        if(courseName ==='Bsc-it'){
+            navigation.navigate('year',{
+                courseName:courseName,
+                subjectName:'vocational'
+            })
+        }
+        else if(courseName === 'BCA'){
+            navigation.navigate('year',{
+                courseName:courseName,
+                subjectName:'vocational'
+            })
+        }
+        else if(courseName === 'Bio-tech'){
+            navigation.navigate('year',{
+                courseName:courseName,
+                subjectName:'vocational'
+            })
+        }
+        else if(courseName === 'MCA'){
+            navigation.navigate('year',{
+                courseName:courseName,
+                subjectName:'vocational'
+            })
+        }
+        else if(courseName === 'MBA'){
+            navigation.navigate('year',{
+                courseName:courseName,
+                subjectName:'vocational'
+            })
+        }
+        else{
             navigation.navigate('subject',{
                 courseName:courseName
             })
+        }
+           
     }
 
     return(

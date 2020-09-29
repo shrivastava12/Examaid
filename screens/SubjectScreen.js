@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
-import {FlatList,Button,Alert, View} from 'react-native';
+import {FlatList,Alert, View} from 'react-native';
 import { connect } from 'react-redux';
 import { fetchSubject } from '../actions/questionAction';
 import ListSubject from '../components/ListSubject';
-
-
 
 const SubjectScreen = ({fetchSubject,subjects,isLoading,error,navigation,route}) => {
 
@@ -34,15 +32,16 @@ const SubjectScreen = ({fetchSubject,subjects,isLoading,error,navigation,route})
     }
 
 
-    const handleOnPress =  (subjectName) => {
+    const handleOnPress =  (courseName,subjectName) => {
         navigation.navigate('year',{
+            courseName:courseName,
             subjectName:subjectName
         })
     }
 
      return(
-      <FlatList data={subjects}  keyExtractor={(item,index) => item._id} numColumns={1} renderItem={(itemData) => (
-          <ListSubject onPress={() => handleOnPress(itemData.item.subjectName)} subjectName={itemData.item.subjectName} />
+      <FlatList data={subjects} keyExtractor={(item,index) => item._id}   numColumns={1} renderItem={(itemData) => (
+          <ListSubject onPress={() => handleOnPress(itemData.item.courseName,itemData.item.subjectName)} subjectName={itemData.item.subjectName} />
       )} />
      ) 
 };
@@ -55,4 +54,3 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps,{fetchSubject})(SubjectScreen);
-

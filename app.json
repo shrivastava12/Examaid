@@ -4,11 +4,10 @@
     "slug": "examaid",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/Examaid.png",
     "splash": {
       "image": "./assets/splash1.png",
       "resizeMode": "cover"
-      
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -21,6 +20,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Previous year question paper app",
+    "githubUrl": "https://github.com/shrivastava12/Examaid.git"
   }
 }

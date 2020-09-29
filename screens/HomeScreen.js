@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
 import {View,Text,FlatList,StyleSheet,ImageBackground,TouchableOpacity, TouchableNativeFeedback, Platform} from 'react-native';
 import { connect } from 'react-redux';
-import { fetchCourse } from '../actions/questionAction';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import customHeaderButton from '../components/customHeaderButton';
-const HomeScreen = ({fetchCourse,navigation}) => {
+const HomeScreen = ({navigation}) => {
 
     const [items,setItems] = useState([
         { id:'1', name: 'UG', code: '#1abc9c' },
@@ -32,15 +31,26 @@ const HomeScreen = ({fetchCourse,navigation}) => {
     }
 
     const onHandlePress = (id) => {
-        let routeName;
         if(id === '1'){
-            routeName = 'ug'
-        }else if(id === '2'){
-            routeName = 'pg'
-        }
-        navigation.navigate('course',{
-            courseName:routeName
+             navigation.navigate('course',{
+            courseName:'ug'
         })
+        }else if(id === '2'){
+            navigation.navigate('course',{
+                courseName:'pg'
+        })
+     }
+        else if(id === '3'){
+            navigation.navigate('intermidiate',{
+                courseType:'11'
+            })
+        }
+        else if(id === '4'){
+            navigation.navigate('intermidiate',{
+                courseType:'12'
+            })
+        }
+       
     }
    
     return(
@@ -103,4 +113,4 @@ const styles =  StyleSheet.create({
 
 
 
-export default connect(null,{fetchCourse})(HomeScreen);
+export default HomeScreen;
