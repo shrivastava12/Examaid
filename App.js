@@ -22,6 +22,7 @@ import SyllabusSubjectScreen from './screens/SyllabusSubjectScreen';
 import IntermidiateCourseScreen from './screens/IntermidiateCourseScreen';
 import IntermidiateSubjectScreen from './screens/IntermidiateSubjectScreen';
 import IntermidiateQuestionScreen from './screens/IntermidiateQuestionScreen';
+import SyllabusScreen from './screens/SyllabusScreen';
 
 
 // Sharing option for app
@@ -73,11 +74,15 @@ function HomeStackScreen(){
         title:route.params.yearName
       })} name="question" component={QuestionScreen}/>
 
-      <HomeStack.Screen name="intermidiate" component={IntermidiateCourseScreen} />
+      <HomeStack.Screen options={{title:'Intermidiate'}}  name="intermidiate" component={IntermidiateCourseScreen} />
 
-      <HomeStack.Screen name="intermidiateSubject" component={IntermidiateSubjectScreen}  />
+      <HomeStack.Screen options={({route}) => ({
+        title:route.params.courseName
+      })}  name="intermidiateSubject" component={IntermidiateSubjectScreen}  />
       
-      <HomeStack.Screen name="intermidiateQuestion" component={IntermidiateQuestionScreen} />
+      <HomeStack.Screen options={({route}) => ({
+        title:route.params.subjectName
+      })}  name="intermidiateQuestion" component={IntermidiateQuestionScreen} />
     
     </HomeStack.Navigator>
   )
@@ -90,9 +95,17 @@ const syllabusStack = createStackNavigator();
 function syllabusStackScreen(){
   return(
     <syllabusStack.Navigator>
-      <syllabusStack.Screen name="syllabus" component={SyllabusHomeScreen} />
-      <syllabusStack.Screen name="syllabusCourse" component={SyllabusCourseScreen} />
-      <syllabusStack.Screen name="syllabusSubject" component={SyllabusSubjectScreen} />
+      <syllabusStack.Screen options={{title:'Syllabus'}} name="syllabus" component={SyllabusHomeScreen} />
+      <syllabusStack.Screen options={({route}) => ({
+        title:route.params.courseType
+      })}   name="syllabusCourse" component={SyllabusCourseScreen} />
+      <syllabusStack.Screen 
+      options={({route}) => ({
+        title:route.params.courseName
+      })}   name="syllabusSubject" component={SyllabusSubjectScreen} />
+      <syllabusStack.Screen options={({route}) => ({
+        title:route.params.subjectName
+      })}    name="syllabusPage" component={SyllabusScreen}/>
     </syllabusStack.Navigator>
   )
 }
@@ -126,8 +139,8 @@ function DrawerScreen(){
     })
   }
     drawerContent={props => <CustomDrawerContent {...props} /> } >
-    <Drawer.Screen name="home" component={HomeStackScreen} />
-    <Drawer.Screen name="syllabus" component={syllabusStackScreen} />
+    <Drawer.Screen name="home" options={{drawerLabel:"Home"}} component={HomeStackScreen} />
+    <Drawer.Screen name="syllabus" options={{drawerLabel:"Syllabus"}} component={syllabusStackScreen} />
   </Drawer.Navigator>
   )
 }
@@ -142,5 +155,3 @@ export default function App() {
    </Provider>
   );
 }
-
-

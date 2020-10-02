@@ -7,12 +7,30 @@ import * as Linking from 'expo-linking';
 
 const SyllabusScreen = ({route,fetchSyllabus,fetchVocationalSyllabus,syllabus,isLoading,error}) => {
     const {courseType,courseName,subjectName} = route.params;
-
+    console.log('test',courseType,courseName,subjectName)
 
     useState(() => {
         if(courseName === 'BCA'){
             fetchVocationalSyllabus(courseType,courseName);
         }else if(courseName === 'BBM'){
+            fetchVocationalSyllabus(courseType,courseName);
+        }
+        else if(courseName === 'B.Sc-IT'){
+            fetchVocationalSyllabus(courseType,courseName);
+        }
+        else if(courseName === 'Bio-Tech'){
+            fetchVocationalSyllabus(courseType,courseName);
+        }
+        else if(courseName === 'EWM'){
+            fetchVocationalSyllabus(courseType,courseName);
+        }
+        else if(courseName === 'MCA'){
+            fetchVocationalSyllabus(courseType,courseName);
+        }
+        else if(courseName === 'MBA'){
+            fetchVocationalSyllabus(courseType,courseName);
+        }
+        else if(courseName === 'M.sc(Bio-tech)'){
             fetchVocationalSyllabus(courseType,courseName);
         }
         else{

@@ -1,12 +1,13 @@
 {
   "expo": {
     "name": "examaid",
+    "privacy":"public",
     "slug": "examaid",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/Examaid.png",
     "splash": {
-      "image": "./assets/splash1.png",
+      "image": "./assets/splash.png",
       "resizeMode": "cover"
     },
     "updates": {
@@ -15,13 +16,18 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "ios": {
-      "supportsTablet": true
+    
+
+    "android": {
+      "package": "com.bytecode.examaid",
+      "versionCode": 4,
+      "permissions" : [ ] 
+      
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": "Previous year question paper app",
+    "description": "App for university student to help in exam",
     "githubUrl": "https://github.com/shrivastava12/Examaid.git"
   }
 }

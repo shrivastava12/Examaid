@@ -23,10 +23,52 @@ const SyllabusCourseScreen = ({navigation,route,courses,fetchSyllabusCourse,isLo
         if(courseName === 'BCA'){
             navigation.navigate('syllabusPage',{
                 courseType:courseType,
+                courseName:courseName,
+                subjectName:'vocational'
+            })
+        }else if(courseName === 'BBM'){
+            navigation.navigate('syllabusPage',{
+                courseType:courseType,
             courseName:courseName,
             subjectName:'vocational'
             })
-        }else if(courseName === 'BBM'){
+        }
+        else if(courseName === 'B.Sc-IT'){
+            navigation.navigate('syllabusPage',{
+                courseType:courseType,
+            courseName:courseName,
+            subjectName:'vocational'
+            })
+        }
+        else if(courseName === 'Bio-tech'){
+            navigation.navigate('syllabusPage',{
+                courseType:courseType,
+            courseName:courseName,
+            subjectName:'vocational'
+            })
+        }
+        else if(courseName === 'EWM'){
+            navigation.navigate('syllabusPage',{
+                courseType:courseType,
+            courseName:courseName,
+            subjectName:'vocational'
+            })
+        }
+        else if(courseName === 'MBA'){
+            navigation.navigate('syllabusPage',{
+                courseType:courseType,
+            courseName:courseName,
+            subjectName:'vocational'
+            })
+        }
+        else if(courseName === 'MCA'){
+            navigation.navigate('syllabusPage',{
+                courseType:courseType,
+            courseName:courseName,
+            subjectName:'vocational'
+            })
+        }
+        else if(courseName === 'M.sc(Bio-tech)'){
             navigation.navigate('syllabusPage',{
                 courseType:courseType,
             courseName:courseName,

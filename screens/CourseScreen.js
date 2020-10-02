@@ -37,7 +37,7 @@ const CourseScreen = ({courses,navigation,isLoading,error,route,fetchCourse}) =>
 
     const handleOnPress = (courseName) => {
 
-        if(courseName ==='Bsc-it'){
+        if(courseName ==='B.sc-it'){
             navigation.navigate('year',{
                 courseName:courseName,
                 subjectName:'vocational'
@@ -62,6 +62,12 @@ const CourseScreen = ({courses,navigation,isLoading,error,route,fetchCourse}) =>
             })
         }
         else if(courseName === 'MBA'){
+            navigation.navigate('year',{
+                courseName:courseName,
+                subjectName:'vocational'
+            })
+        }
+        else if(courseName === 'M.sc(Bio-tech)'){
             navigation.navigate('year',{
                 courseName:courseName,
                 subjectName:'vocational'

@@ -13,7 +13,7 @@ const QuestionScreen = ({fetchQuestion,fetchVocationalQuestion,questions,isLoadi
    useEffect(() => {
        if(courseName === 'BCA'){
             fetchVocationalQuestion(courseName,yearName)
-       }else if(courseName === 'Bsc-it'){
+       }else if(courseName === 'B.sc-it'){
             fetchVocationalQuestion(courseName,yearName)
        }else if(courseName === 'Bio-tech'){
         fetchVocationalQuestion(courseName,yearName)
@@ -23,6 +23,9 @@ const QuestionScreen = ({fetchQuestion,fetchVocationalQuestion,questions,isLoadi
             else if(courseName === 'MBA'){
                 fetchVocationalQuestion(courseName,yearName)
                 }
+                else if(courseName === 'M.sc(Bio-tech)'){
+                    fetchVocationalQuestion(courseName,yearName)
+                    }
        else{
         fetchQuestion(subjectName,yearName);
        }

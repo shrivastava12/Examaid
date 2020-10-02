@@ -4,22 +4,18 @@ import ListSubject from '../components/ListSubject';
 import { fetchSyllabusSubject } from '../actions/syllabusAction';
 import { connect } from 'react-redux';
 
-const subject = [
-    {id:'1',subjectName:'history'},
-    {id:'2',subjectName:'geography'},
-    {id:'3',subjectName:'civics'},
-]
 
-const SyllabusSubjectScreen = ({navigation,route,fetchSyllabusSubject,error,isLoading}) => {
 
-    const {courseType,courseName} =  route.props;
+const SyllabusSubjectScreen = ({navigation,route,fetchSyllabusSubject,subjects,error,isLoading}) => {
+
+    const {courseType,courseName} =  route.params;
     useEffect(() => {
         fetchSyllabusSubject(courseType,courseName)
     },[fetchSyllabusSubject]);
 
 // TODO
     const onHandlePress = (courseType,courseName,subjectName) => {
-        
+        console.log('test2',courseType,courseName,subjectName)
         navigation.navigate('syllabusPage',{
             courseType:courseType,
             courseName:courseName,
@@ -48,7 +44,7 @@ const SyllabusSubjectScreen = ({navigation,route,fetchSyllabusSubject,error,isLo
     
 
     return(
-        <FlatList data={subject} numColumns={1} 
+        <FlatList data={subjects} keyExtractor={(item) => item._id} numColumns={1} 
         renderItem={(itemData) =>(
             <ListSubject onPress={() => {onHandlePress(itemData.item.courseType,itemData.item.courseName,itemData.item.subjectName)}}
             subjectName={itemData.item.subjectName} />

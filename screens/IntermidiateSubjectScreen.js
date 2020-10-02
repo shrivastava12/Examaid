@@ -32,9 +32,9 @@ const IntermidiateSubjectScreen = ({route,isLoading,error,navigation,subjects,fe
         )
     }
 
-    const onHandlePress = (typeName,courseName,subjectName) => {
+    const onHandlePress = (courseType,courseName,subjectName) => {
         navigation.navigate('intermidiateQuestion',{
-            typeName:typeName,
+            courseType:courseType,
             courseName:courseName,
             subjectName:subjectName
         })        
@@ -44,7 +44,7 @@ const IntermidiateSubjectScreen = ({route,isLoading,error,navigation,subjects,fe
         <FlatList data={subjects}  keyExtractor={(item) => item._id} 
         numColumns={1} 
         renderItem={(itemData) => (
-            <ListSubject onPress={() => {onHandlePress(itemData.item.typeName,itemData.item.courseName,itemData.item.subjectName)}} subjectName={
+            <ListSubject onPress={() => {onHandlePress(itemData.item.courseType,itemData.item.courseName,itemData.item.subjectName)}} subjectName={
                 itemData.item.subjectName
             } />
         )} />

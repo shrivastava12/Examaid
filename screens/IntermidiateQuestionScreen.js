@@ -7,10 +7,10 @@ import { fetchIntermidiateQuestion } from '../actions/questionAction';
 import * as Linking from 'expo-linking';
 const IntermidiateQuestionScreen = ({route,isLoading,error,fetchIntermidiateQuestion,questions}) => {
     
-    const {typeName,courseName,subjectName} = route.params;
+    const {courseType,courseName,subjectName} = route.params;
 
     useEffect(() => {
-        fetchIntermidiateQuestion(typeName,courseName,subjectName);
+        fetchIntermidiateQuestion(courseType,courseName,subjectName);
     },[fetchIntermidiateQuestion])
 
     const handleOnPress = (file) => {
