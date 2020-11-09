@@ -1,9 +1,9 @@
 {
   "expo": {
-    "name": "examaid",
+    "name": "ExamAid",
     "privacy":"public",
     "slug": "examaid",
-    "version": "1.0.0",
+    "version": "1.2.0",
     "orientation": "portrait",
     "icon": "./assets/Examaid.png",
     "splash": {
@@ -20,7 +20,7 @@
 
     "android": {
       "package": "com.bytecode.examaid",
-      "versionCode": 4,
+      "versionCode": 6,
       "permissions" : [ ] 
       
     },

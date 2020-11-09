@@ -53,9 +53,8 @@ if(error === true ){
 
 
 const handleOnpress = (file) => {
-    Linking.openURL(`http://syllabusapi.ml${file}`);
+     Linking.openURL(`http://syllabusapi.ml${file}`);
 };
-
 
 
     return(
@@ -73,7 +72,7 @@ const styles = StyleSheet.create({
     
     container:{
         flex:1,
-        padding:20,
+        
        
       
     },

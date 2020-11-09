@@ -40,7 +40,7 @@ const SyllabusCourseScreen = ({navigation,route,courses,fetchSyllabusCourse,isLo
             subjectName:'vocational'
             })
         }
-        else if(courseName === 'Bio-tech'){
+        else if(courseName === 'Bio-Tech'){
             navigation.navigate('syllabusPage',{
                 courseType:courseType,
             courseName:courseName,

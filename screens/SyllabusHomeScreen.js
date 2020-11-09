@@ -6,8 +6,7 @@ import customHeaderButton from '../components/customHeaderButton';
 const course = [
     { id:'1', name: 'Under graduate(UG)', code: '#3C40C6' },
     { id:'2', name: 'Post graduate(PG)', code: '#6AB04A' },
-    { id:'3', name: 'Intermidiate(11th)', code: '#616C67' },
-    { id:'4', name: 'Intermidiate(12th)', code: '#EA7773' },
+   
 ]
 
 const SyllabusHomeScreen = ({navigation}) => {

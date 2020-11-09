@@ -30,7 +30,7 @@ import SyllabusScreen from './screens/SyllabusScreen';
 const onShare = async () => {
   try {
     const result = await Share.share({
-      message: 'https://play.google.com/store/apps/details?id=com.imangi.templerun2',
+      message: 'https://play.google.com/store/apps/details?id=com.bytecode.examaid',
     });
     if (result.action === Share.sharedAction) {
       if (result.activityType) {
@@ -50,9 +50,11 @@ const onShare = async () => {
 const HomeStack = createStackNavigator();
 function HomeStackScreen(){
   return(
-    <HomeStack.Navigator>
+    <HomeStack.Navigator initialRouteName='home' screenOptions={{
+      headerTitleAlign:'center'
+    }} >
       <HomeStack.Screen options={{
-        headerTitle:'Examaid',
+        headerTitle:'ExamAid',
         headerTitleAlign:'center',
         headerTintColor:'red'
       }} name="home" component={HomeScreen} />
@@ -94,7 +96,10 @@ const syllabusStack = createStackNavigator();
 
 function syllabusStackScreen(){
   return(
-    <syllabusStack.Navigator>
+    <syllabusStack.Navigator screenOptions={{
+      headerTitleAlign:'center',
+      headerTintColor:'green'
+    }} >
       <syllabusStack.Screen options={{title:'Syllabus'}} name="syllabus" component={SyllabusHomeScreen} />
       <syllabusStack.Screen options={({route}) => ({
         title:route.params.courseType
@@ -125,7 +130,7 @@ const Drawer = createDrawerNavigator();
 
 function DrawerScreen(){
   return(
-  <Drawer.Navigator screenOptions={
+  <Drawer.Navigator initialRouteName='home' screenOptions={
     ({route}) => ({
       drawerIcon:() => {
         let iconName;
